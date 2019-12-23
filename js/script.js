@@ -24,20 +24,20 @@ quotes.push(new newQuote("I attribute my success to this: I never gave or took a
 
 
 // Gets a random quote object from quotes array and returns it
-function getRandomQuote(){
+const getRandomQuote = () =>{
   randomNum = Math.floor(Math.random() * quotes.length);
   return quotes[randomNum]
 }
-function getRandomColor(){
+const getRandomColor = () => {
   randomNum1 = Math.floor(Math.random() * 256)
   randomNum2 = Math.floor(Math.random() * 256)
   randomNum3 = Math.floor(Math.random() * 256)
-  return "rgb(" + randomNum1 + "," + randomNum2 + "," + randomNum3 +")";
+  return `rgb(${randomNum1},${randomNum2},${randomNum3})`;
 }
 
 
 // Replaces the text in the html with the randomQuote objects values
-function printQuote(){
+const printQuote = () => {
   let randomQuote = getRandomQuote();
   document.querySelector(".quote").innerHTML = randomQuote.quote;
   document.querySelector(".source").innerHTML = randomQuote.source + "<span class='citation'></span><span class='year'></span><span class='tag'></span>";
