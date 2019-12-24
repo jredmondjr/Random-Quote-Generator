@@ -14,6 +14,7 @@ class newQuote {
   }
 }
 
+
 // Creating quotes array and filling with quote objects
 quotes = [];
 quotes.push(new newQuote("Life is about making an impact, not making an income.", "Kevin Kruse", "movie", 2015));
@@ -43,10 +44,17 @@ const printQuote = () => {
   document.querySelector(".source").innerHTML = randomQuote.source + "<span class='citation'></span><span class='year'></span><span class='tag'></span>";
   document.querySelector(".citation").innerHTML = randomQuote.citation;
   document.querySelector(".year").innerHTML = randomQuote.year;
-  if(randomQuote.tag != undefined){document.querySelector(".tag").innerHTML = ", " + randomQuote.tag};
+  if(randomQuote.tag != undefined){document.querySelector(".tag").innerHTML = `, ${randomQuote.tag}`};
   document.body.style.backgroundColor = getRandomColor();
+  restartInterval();
+}
+let quoteInterval = setInterval(printQuote, 20000);
+
+const restartInterval = () => {
+  clearInterval(quoteInterval);
+  quoteInterval = setInterval(printQuote, 20000);
+  
 }
 
-setInterval(printQuote, 20000);
 // adds eventlistener to the button with type click and function printQuote
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
